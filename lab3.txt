@@ -1,0 +1,56 @@
+Глава 9
+//выводит информацию об идентичности пользователя
+@Anubis-coder ➜ /workspaces/mdk0201 (main) $ id
+uid=1000(codespace) gid=1000(codespace) groups=1000(codespace),106(ssh),107(docker),989(pipx),990(python),991(oryx),992(golang),993(sdkman),994(rvm),995(php),996(conda),997(nvs),998(nvm),999(hugo)
+//изменяет режим доступа к файлу
+@Anubis-coder ➜ /workspaces/mdk0201 (main) $ sudo chmod o-r Test
+@Anubis-coder ➜ /workspaces/mdk0201 (main) $ stat Test
+  File: Test
+  Size: 4096            Blocks: 8          IO Block: 4096   directory
+Device: 704h/1796d      Inode: 1310798     Links: 2
+Access: (0773/drwxrwx-wx)  Uid: ( 1000/codespace)   Gid: ( 1000/codespace)
+Access: 2025-02-06 06:34:40.017396236 +0000
+Modify: 2025-02-06 06:33:45.949394569 +0000
+Change: 2025-02-06 06:34:38.721396196 +0000
+ Birth: -
+//определяет разрешения доступа к файлам по умолчанию
+@Anubis-coder ➜ /workspaces/mdk0201 (main) $ umask
+0022
+//запускает командную оболочку от имени другого пользователя
+@Anubis-coder ➜ /workspaces/mdk0201 (main) $ su
+Password: 
+su: Authentication failure
+//выполняет команду от имени другого пользователя;
+@Anubis-coder ➜ /workspaces/mdk0201 (main) $ sudo useradd antoshka
+@Anubis-coder ➜ /workspaces/mdk0201 (main) $ sudo passwd antoshka 
+New password: 
+Retype new password: 
+passwd: password updated successfully
+//изменяет владельца файла
+@Anubis-coder ➜ /workspaces/mdk0201 (main) $ sudo useradd u2
+@Anubis-coder ➜ /workspaces/mdk0201 (main) $ sudo chown u2 Test
+@Anubis-coder ➜ /workspaces/mdk0201 (main) $ stat Test
+  File: Test
+  Size: 4096            Blocks: 8          IO Block: 4096   directory
+Device: 704h/1796d      Inode: 1310798     Links: 2
+Access: (0773/drwxrwx-wx)  Uid: ( 1002/      u2)   Gid: ( 1000/codespace)
+Access: 2025-02-06 06:44:47.989414981 +0000
+Modify: 2025-02-06 06:33:45.949394569 +0000
+Change: 2025-02-06 06:44:46.649414940 +0000
+ Birth: -
+//изменяет группу файла
+@Anubis-coder ➜ /workspaces/mdk0201 (main) $ sudo chgrp u2 Test
+@Anubis-coder ➜ /workspaces/mdk0201 (main) $ stat Test
+  File: Test
+  Size: 4096            Blocks: 8          IO Block: 4096   directory
+Device: 704h/1796d      Inode: 1310798     Links: 2
+Access: (0773/drwxrwx-wx)  Uid: ( 1002/      u2)   Gid: ( 1002/      u2)
+Access: 2025-02-06 07:03:10.405448970 +0000
+Modify: 2025-02-06 06:33:45.949394569 +0000
+Change: 2025-02-06 07:03:04.725448795 +0000
+ Birth: -
+// изменяет пароль пользователя.
+@Anubis-coder ➜ /workspaces/mdk0201 (main) $ sudo passwd
+New password: 
+Retype new password: 
+passwd: password updated successfully
