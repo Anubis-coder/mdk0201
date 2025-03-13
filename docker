@@ -1,1 +1,195 @@
+👋 Welcome to Codespaces! You are on our default image. 
+   - It includes runtimes and tools for Python, Node.js, Docker, and more. See the full list here: https://aka.ms/ghcs-default-image
+   - Want to use a custom image instead? Learn more here: https://aka.ms/configure-codespace
 
+🔍 To explore VS Code to its fullest, search using the Command Palette (Cmd/Ctrl + Shift + P or F1).
+
+📝 Edit away, run your app as usual, and we'll automatically make it available for you to access.
+
+@Anubis-coder ➜ /workspaces/mdk0201 (main) $ docker search ubuntu
+NAME                             DESCRIPTION                                     STARS     OFFICIAL
+ubuntu                           Ubuntu is a Debian-based Linux operating sys…   17496     [OK]
+ubuntu/squid                     Squid is a caching proxy for the Web. Long-t…   107       
+ubuntu/nginx                     Nginx, a high-performance reverse proxy & we…   127       
+ubuntu/cortex                    Cortex provides storage for Prometheus. Long…   4         
+ubuntu/kafka                     Apache Kafka, a distributed event streaming …   53        
+ubuntu/prometheus                Prometheus is a systems and service monitori…   70        
+ubuntu/apache2                   Apache, a secure & extensible open-source HT…   90        
+ubuntu/bind9                     BIND 9 is a very flexible, full-featured DNS…   102       
+ubuntu/zookeeper                 ZooKeeper maintains configuration informatio…   13        
+ubuntu/mysql                     MySQL open source fast, stable, multi-thread…   67        
+ubuntu/redis                     Redis, an open source key-value store. Long-…   23        
+ubuntu/postgres                  PostgreSQL is an open source object-relation…   41        
+ubuntu/jre                       Distroless Java runtime based on Ubuntu. Lon…   19        
+ubuntu/dotnet-aspnet             Chiselled Ubuntu runtime image for ASP.NET a…   25        
+ubuntu/cassandra                 Cassandra, an open source NoSQL distributed …   2         
+ubuntu/memcached                 Memcached, in-memory keyvalue store for smal…   5         
+ubuntu/grafana                   Grafana, a feature rich metrics dashboard & …   12        
+ubuntu/python                    A chiselled Ubuntu rock with the Python runt…   20        
+ubuntu/dotnet-runtime            Chiselled Ubuntu runtime image for .NET apps…   20        
+ubuntu/prometheus-alertmanager   Alertmanager handles client alerts from Prom…   9         
+ubuntu/dotnet-deps               Chiselled Ubuntu for self-contained .NET & A…   16        
+ubuntu/mlflow                    MLFlow: for managing the machine learning li…   5         
+ubuntu/telegraf                  Telegraf collects, processes, aggregates & w…   4         
+ubuntu/loki                      Grafana Loki, a log aggregation system like …   2         
+ubuntu/chiselled-jre             [MOVED TO ubuntu/jre] Chiselled JRE: distrol…   3         
+@Anubis-coder ➜ /workspaces/mdk0201 (main) $ docker pull ubuntu:22.04
+22.04: Pulling from library/ubuntu
+9cb31e2e37ea: Pull complete 
+Digest: sha256:ed1544e454989078f5dec1bfdabd8c5cc9c48e0705d07b678ab6ae3fb61952d2
+Status: Downloaded newer image for ubuntu:22.04
+docker.io/library/ubuntu:22.04
+@Anubis-coder ➜ /workspaces/mdk0201 (main) $ docker images
+REPOSITORY   TAG       IMAGE ID       CREATED       SIZE
+ubuntu       22.04     a24be041d957   6 weeks ago   77.9MB
+@Anubis-coder ➜ /workspaces/mdk0201 (main) $ docker rmi <a24be041d957>
+bash: syntax error near unexpected token `newline'
+@Anubis-coder ➜ /workspaces/mdk0201 (main) $ docker rmi a24be041d957
+Untagged: ubuntu:22.04
+Untagged: ubuntu@sha256:ed1544e454989078f5dec1bfdabd8c5cc9c48e0705d07b678ab6ae3fb61952d2
+Deleted: sha256:a24be041d9576937f62435f8564c2ca6e429d2760537b04c50ca50adb0c6d212
+Deleted: sha256:270a1170e7e398434ff1b31e17e233f7d7b71aa99a40473615860068e86720af
+@Anubis-coder ➜ /workspaces/mdk0201 (main) $ docker rmi -f a24be041d957
+Error response from daemon: No such image: a24be041d957:latest
+@Anubis-coder ➜ /workspaces/mdk0201 (main) $ docker run a24be041d95
+Unable to find image 'a24be041d95:latest' locally
+docker: Error response from daemon: pull access denied for a24be041d95, repository does not exist or may require 'docker login': denied: requested access to the resource is denied.
+See 'docker run --help'.
+@Anubis-coder ➜ /workspaces/mdk0201 (main) $ docker images
+REPOSITORY   TAG       IMAGE ID   CREATED   SIZE
+@Anubis-coder ➜ /workspaces/mdk0201 (main) $ docker pull ubuntu:22.04
+22.04: Pulling from library/ubuntu
+9cb31e2e37ea: Pull complete 
+Digest: sha256:ed1544e454989078f5dec1bfdabd8c5cc9c48e0705d07b678ab6ae3fb61952d2
+Status: Downloaded newer image for ubuntu:22.04
+docker.io/library/ubuntu:22.04
+@Anubis-coder ➜ /workspaces/mdk0201 (main) $ docker images
+REPOSITORY   TAG       IMAGE ID       CREATED       SIZE
+ubuntu       22.04     a24be041d957   6 weeks ago   77.9MB
+@Anubis-coder ➜ /workspaces/mdk0201 (main) $ docker run -d a24be041d957
+06f1e9a17ea2a29094e60f438b9052023ee7f36a05a76c2f5b452aec24056760
+@Anubis-coder ➜ /workspaces/mdk0201 (main) $ docker run -it a24be041d957
+root@7a2ac6b0712d:/# pwd
+/
+root@7a2ac6b0712d:/# uname -a
+Linux 7a2ac6b0712d 6.8.0-1021-azure #25~22.04.1-Ubuntu SMP Thu Jan 16 21:37:09 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux
+root@7a2ac6b0712d:/# 
+exit
+@Anubis-coder ➜ /workspaces/mdk0201 (main) $ docker ps -a
+CONTAINER ID   IMAGE          COMMAND       CREATED         STATUS                      PORTS     NAMES
+7a2ac6b0712d   a24be041d957   "/bin/bash"   6 minutes ago   Exited (0) 17 seconds ago             intelligent_keldysh
+06f1e9a17ea2   a24be041d957   "/bin/bash"   6 minutes ago   Exited (0) 6 minutes ago              zealous_jepsen
+@Anubis-coder ➜ /workspaces/mdk0201 (main) $ docker run -it httpd
+Unable to find image 'httpd:latest' locally
+latest: Pulling from library/httpd
+7cf63256a31a: Pull complete 
+d2f10b557009: Pull complete 
+4f4fb700ef54: Pull complete 
+38fd0d422c41: Pull complete 
+470035b3d48f: Pull complete 
+fdebd6c6e1b2: Pull complete 
+Digest: sha256:10381816bb7e60ae3a9db3784f2966a8910b6ff07c4da54bd2d62d2671c8ab6e
+Status: Downloaded newer image for httpd:latest
+AH00558: httpd: Could not reliably determine the server's fully qualified domain name, using 172.17.0.2. Set the 'ServerName' directive globally to suppress this message
+AH00558: httpd: Could not reliably determine the server's fully qualified domain name, using 172.17.0.2. Set the 'ServerName' directive globally to suppress this message
+[Thu Mar 13 06:57:32.449290 2025] [mpm_event:notice] [pid 1:tid 1] AH00489: Apache/2.4.63 (Unix) configured -- resuming normal operations
+[Thu Mar 13 06:57:32.449444 2025] [core:notice] [pid 1:tid 1] AH00094: Command line: 'httpd -D FOREGROUND'
+
+^[[A^Z 
+^X^Z^C[Thu Mar 13 07:09:10.445601 2025] [mpm_event:notice] [pid 1:tid 1] AH00491: caught SIGTERM, shutting down
+@Anubis-coder ➜ /workspaces/mdk0201 (main) $ docker run -it alt
+Unable to find image 'alt:latest' locally
+latest: Pulling from library/alt
+50159fc3f76b: Pull complete 
+305aa293179e: Pull complete 
+Digest: sha256:038031df9afd7e2763c01015933957bd0565666f598b0611c0fa51c6a1797594
+Status: Downloaded newer image for alt:latest
+[root@8cdcf95b5852 /]# exit
+exit
+@Anubis-coder ➜ /workspaces/mdk0201 (main) $ docker run -it jetty
+Unable to find image 'jetty:latest' locally
+latest: Pulling from library/jetty
+5a7813e071bf: Pull complete 
+8dbbbc6af9dc: Pull complete 
+a10b6847b9f1: Pull complete 
+dcc1c5ea3c7d: Pull complete 
+91e6cc55403a: Pull complete 
+9d07842e6a28: Pull complete 
+4f4fb700ef54: Pull complete 
+bc1e4618cf4b: Pull complete 
+Digest: sha256:0c6ae353ce010db1b772f4b20e38eb4d95cc7165172f3152b645a21411b487f3
+Status: Downloaded newer image for jetty:latest
+/opt/java/openjdk/bin/java -Djava.io.tmpdir=/tmp/jetty -Djetty.home=/usr/local/jetty -Djetty.base=/var/lib/jetty -Djava.io.tmpdir=/tmp/jetty --class-path /var/lib/jetty/resources:/usr/local/jetty/lib/logging/slf4j-api-2.0.16.jar:/usr/local/jetty/lib/logging/jetty-slf4j-impl-12.0.17.jar:/usr/local/jetty/lib/jetty-http-12.0.17.jar:/usr/local/jetty/lib/jetty-server-12.0.17.jar:/usr/local/jetty/lib/jetty-xml-12.0.17.jar:/usr/local/jetty/lib/jetty-util-12.0.17.jar:/usr/local/jetty/lib/jetty-io-12.0.17.jar org.eclipse.jetty.xml.XmlConfiguration java.io.tmpdir=/tmp/jetty java.version=21.0.6 jetty.base=/var/lib/jetty jetty.base.uri=file:///var/lib/jetty jetty.home=/usr/local/jetty jetty.home.uri=file:///usr/local/jetty jetty.webapp.addHiddenClasses=org.eclipse.jetty.logging.,file:///usr/local/jetty/lib/logging/,org.slf4j. runtime.feature.alpn=true slf4j.version=2.0.16 /usr/local/jetty/etc/jetty-bytebufferpool.xml /usr/local/jetty/etc/jetty-threadpool.xml /usr/local/jetty/etc/jetty.xml /usr/local/jetty/etc/jetty-http.xml
+2025-03-13 07:13:30.527:INFO :oejs.Server:main: jetty-12.0.17; built: 2025-03-03T13:15:05.903Z; git: 14d19c268e4cb09afc312b5255a4cbb7a95c5cb6; jvm 21.0.6+7-LTS
+2025-03-13 07:13:30.562:INFO :oejs.AbstractConnector:main: Started ServerConnector@647e447{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+2025-03-13 07:13:30.576:INFO :oejs.Server:main: Started oejs.Server@147ed70f{STARTING}[12.0.17,sto=0] @630ms
+^Z^Z^C2025-03-13 07:16:10.233:INFO :oejs.Server:JettyShutdownThread: Stopped oejs.Server@147ed70f{STOPPING}[12.0.17,sto=0]
+2025-03-13 07:16:10.236:INFO :oejs.AbstractConnector:JettyShutdownThread: Stopped ServerConnector@647e447{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+@Anubis-coder ➜ /workspaces/mdk0201 (main) $ docker run -it ghost
+Unable to find image 'ghost:latest' locally
+latest: Pulling from library/ghost
+7cf63256a31a: Already exists 
+8c9300f9e3ab: Pull complete 
+5cc42ab4fbe5: Pull complete 
+7ec1fabfb760: Pull complete 
+fae2a05714e2: Pull complete 
+bb650b2ee5db: Pull complete 
+ee0154c02e74: Pull complete 
+819dd7cb8f7f: Pull complete 
+4f4fb700ef54: Pull complete 
+1fa21895508e: Pull complete 
+Digest: sha256:424414c1320a77ad54acec3f8bf55e7ac2faf1dff2b4ec4e2f0dca8d3f5daaec
+Status: Downloaded newer image for ghost:latest
+[2025-03-13 07:17:02] INFO Ghost is running in production...
+[2025-03-13 07:17:03] INFO Your site is now available on http://localhost:2368/
+[2025-03-13 07:17:03] INFO Ctrl+C to shut down
+[2025-03-13 07:17:03] INFO Ghost server started in 0.805s
+[2025-03-13 07:17:03] ERROR connect ECONNREFUSED 127.0.0.1:3306
+
+connect ECONNREFUSED 127.0.0.1:3306
+
+"Unknown database error"
+
+Error ID:
+    500
+
+Error Code: 
+    ECONNREFUSED
+
+----------------------------------------
+
+Error: connect ECONNREFUSED 127.0.0.1:3306
+    at /var/lib/ghost/versions/5.112.0/node_modules/knex-migrator/lib/database.js:57:19
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+
+[2025-03-13 07:17:03] WARN Ghost is shutting down
+[2025-03-13 07:17:03] WARN Ghost has shut down
+[2025-03-13 07:17:03] WARN Your site is now offline
+[2025-03-13 07:17:03] WARN Ghost was running for a few seconds
+@Anubis-coder ➜ /workspaces/mdk0201 (main) $ docker run -it ghost
+[2025-03-13 07:17:47] INFO Ghost is running in production...
+[2025-03-13 07:17:47] INFO Your site is now available on http://localhost:2368/
+[2025-03-13 07:17:47] INFO Ctrl+C to shut down
+[2025-03-13 07:17:47] INFO Ghost server started in 0.292s
+[2025-03-13 07:17:47] ERROR connect ECONNREFUSED 127.0.0.1:3306
+
+connect ECONNREFUSED 127.0.0.1:3306
+
+"Unknown database error"
+
+Error ID:
+    500
+
+Error Code: 
+    ECONNREFUSED
+
+----------------------------------------
+
+Error: connect ECONNREFUSED 127.0.0.1:3306
+    at /var/lib/ghost/versions/5.112.0/node_modules/knex-migrator/lib/database.js:57:19
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+
+[2025-03-13 07:17:47] WARN Ghost is shutting down
+[2025-03-13 07:17:47] WARN Ghost has shut down
+[2025-03-13 07:17:47] WARN Your site is now offline
+[2025-03-13 07:17:47] WARN Ghost was running for a few seconds
